@@ -19,14 +19,9 @@ public class Menu {
         aux += "6. Sair\n";
         return aux;
     }
-    public static String menuPessoa(){
-        String aux = "Escolha uma opção:\n";
-        aux += "1. Pessoa Fisica\n";
-        aux += "2. Pessoa Juridica\n";
-        return aux;
-    }
     public static void oQueFazAcontecer(){
         Controle controle = new Controle();
+        String cpf;
         int opcao;
         do{
             opcao = parseInt(showInputDialog(Menu.menuIniciar()));
@@ -34,24 +29,23 @@ public class Menu {
                 showMessageDialog(null,"Opção invalida");
             }else{
                 switch(opcao){
-                    case 1:
+                    case 1: //cadastro de paciente
                         controle.cadastrarPaciente();
                         break;
-                    case 2:
-                        String cpf = JOptionPane.showInputDialog("Digite o CPF do paciente: ");
-                        controle.atenderPaciente(cpf);
+                    case 2: //atender o paciente
+                        controle.atenderPaciente();
                         break;
-                    case 3:
+                    case 3: // liberar vaga
                         controle.liberarVaga();
                         break;
-                    case 4:
-                        //String cpf = JOptionPane.showInputDialog("Digite o CPF do paciente: ");
-                        //controle.consultarRegsitroPaciente(cpf);
+                    case 4: //consultar registro do paciente
+                        cpf = JOptionPane.showInputDialog("Digite o CPF do paciente: ");
+                        controle.consultarRegistroPaciente(cpf);
                         break;
-                    case 5:
+                    case 5: //imprimer a fila de atendimento
                         controle.imprimirFilaAtendimento();
                 }
-            }
+            } //case 6: encerrar programa
         }while(opcao != 6);
     }
 }

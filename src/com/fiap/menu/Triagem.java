@@ -22,14 +22,6 @@ public class Triagem {
         }
 
     }
-    public void resultadoTriagem(){
-        Paciente paciente = new Paciente();
-        if(!fazerTriagem()){
-            paciente.setStatus("liberado");
 
-        }else{
-            paciente.setStatus("filaInternacao");
-        }
-    }
 
 }
